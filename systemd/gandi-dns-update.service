@@ -1,0 +1,13 @@
+[Unit]
+Description=Update Gandi DNS with public IP
+
+[Service]
+ExecStart=@PYTHON@ @SCRIPT_PATH@
+Restart=on-failure
+User=@USER@
+Environment=PATH=@VENV_PATH@/bin:/usr/bin:/usr/local/bin
+Environment=PYTHONUNBUFFERED=1
+WorkingDirectory=@WORKING_DIR@
+
+[Install]
+WantedBy=multi-user.target
